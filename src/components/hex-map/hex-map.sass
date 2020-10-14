@@ -1,0 +1,118 @@
+.map-container
+    display: grid
+    height: 100%
+    width: 100%
+    grid-template-rows: repeat(10, 2.5em)
+    grid-template-columns: repeat(10, 2.5em)
+    align-content: center
+    justify-items: center
+
+
+.hex-cell
+    height: 3em
+    width: 3em
+    transform: rotateZ(90deg)
+    margin: 0
+    filter: drop-shadow(.2em 0 .25em #333)
+
+.hex-cell-bacteria
+    transition: background .66s   
+    animation: cell-in .66s
+    z-index: 2
+    width: 1.5em
+    height: 1.5em
+    border-radius: 50%
+    background: radial-gradient(#366 15%, #5c7 33%, #353 95% 100%)
+    cursor: pointer
+    &:hover
+        box-shadow: 0 0 .1em .2em #7f7
+
+.hex-cell-empty
+    z-index: 2
+    width: 1.5em
+    height: 1.5em
+    background: transparent
+
+.hex-cell-cell
+    transition: background .66s 
+    animation: cell-in .66s
+    z-index: 2
+    width: 1.5em
+    height: 1.5em
+    border-radius: 50%    
+    background: radial-gradient(#339 15%, #4cc 33%, #005 95% 100%)
+    cursor: pointer
+    &:hover
+        box-shadow: 0 0 .1em .2em lightskyblue
+
+.hex-cell-top
+    width: 0
+    border-bottom: 1em solid grey
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid transparent
+
+.hex-cell-bottom
+    width: 0
+    border-bottom: 1em solid transparent
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid grey
+
+.hex-cell-middle
+    z-index: 1
+    display: flex
+    align-items: center
+    justify-content: center
+    background: grey
+    width: 2em
+    height: 1em
+
+.highlight
+    background-color: lightskyblue
+    cursor: pointer
+
+.highlight-bottom
+    width: 0
+    border-bottom: 1em solid transparent
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid lightskyblue
+
+.highlight-top
+    width: 0
+    border-bottom: 1em solid lightskyblue
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid transparent
+
+.jumplight
+    background-color: lightblue    
+    cursor: pointer
+
+.jumplight-bottom
+    width: 0
+    border-bottom: 1em solid transparent
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid lightblue
+
+.jumplight-top
+    width: 0
+    border-bottom: 1em solid lightblue
+    border-left: 1em solid transparent
+    border-right: 1em solid transparent
+    border-top: 1em solid transparent
+
+@keyframes cell-in
+    0%
+        opacity: 0%
+    3%
+        opacity: 8%
+        transform: scale(.7)
+    44%
+        opacity: 66%
+        transform: scale(1.1)
+    100%
+        opacity: 100%
+        transform: scale(1)

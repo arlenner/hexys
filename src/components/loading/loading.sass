@@ -1,0 +1,35 @@
+.loading-main 
+    display: flex
+    align-items: center
+    justify-content: center
+
+.loading-detail
+
+.loading-anim
+    animation: turn 2s infinite cubic-bezier(.72,.23,.85,.33)
+    width: 5em
+    height: 5em
+    background-color: lightskyblue
+
+.loading-anim-container
+    animation: slide 2s infinite ease-in
+
+@keyframes turn
+    0%
+        transform: rotateZ(0deg)
+        
+    50%
+        transform: rotateZ(90deg)
+
+    100%
+        transform: rotateZ(90deg)
+
+@keyframes slide
+    0%
+        transform: translateX(0%)
+    
+    50%
+        transform: translateX(100%)
+        
+        
+        
