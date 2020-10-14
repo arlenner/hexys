@@ -6,7 +6,7 @@ import { GameOver } from './components/game-over/game-over'
 
 // SOCKET
 import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'http://localhost:3001'
+const ENDPOINT = 'https://calm-tundra-53705.herokuapp.com/'
 
 let socket
 
