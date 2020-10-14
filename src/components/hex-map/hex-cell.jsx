@@ -131,7 +131,7 @@ export const HexCell = ({cellState, x, y, socket, state}) => {
                             }`}>
                 <div className={'hex-cell-'+cellState}
                     onClick={handleClick(cellState, x, y, state, socket)}>
-                    <div className={'hex-cell-'+cellState+'-inner'}>{`${x},${y}`}</div>
+                    <div className={'hex-cell-'+cellState+'-inner'}>{/*`${x},${y}`*/}</div>
                 </div>
             </div>
             <div className={`hex-cell-bottom${
