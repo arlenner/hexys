@@ -13,7 +13,7 @@ const GameListItem = ({id, game}) => {
     :   ''
 
     const getScore = team => game[0].cells.filter(c => c.cellState === team).length  
-    
+
     return (
         <>
             <div className="game-li-container">
@@ -39,7 +39,7 @@ export const Lobby = ({socket, initGames}) => {
     useEffect(() => {
         socket.on('update-lobby', games => setGames(games))
         return () => socket.off('update-lobby', setGames) 
-    }, [])
+    }, [socket])
 
     return (
         <>
