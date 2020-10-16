@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './loading.sass'
 
-export const Loading = () => {
+export const Loading = ({searching = false}) => {
 
     const [dots, setDots] = useState('')
 
@@ -23,7 +23,7 @@ export const Loading = () => {
                 </div>
 
                 <div className="loading-text-container">
-                    <h2 className="loading-text">{`Searching for other players${dots}`}</h2>
+                    <h2 className="loading-text">{searching ? `Searching for other players${dots}` : ``}</h2>
                 </div>
             </main>
         </>

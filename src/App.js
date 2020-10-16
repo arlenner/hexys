@@ -19,7 +19,7 @@ const App = () => {
         socket = socketIOClient(ENDPOINT)
         socket.on('connected',      games => setComponent(<Lobby socket={socket} initGames={games} />))
         socket.on('found-game',     data => setComponent(<HexMap initState={data} socket={socket}/>))
-        socket.on('finding-game',   () => setComponent(<Loading />))
+        socket.on('finding-game',   () => setComponent(<Loading searching />))
         socket.on('cell-victory',   () => setComponent(<GameOver socket={socket} cell />))
         socket.on('bact-victory',   () => setComponent(<GameOver socket={socket} bact />))
         socket.on('tie-game',       () => setComponent(<GameOver socket={socket} tie/>))
