@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './loading.sass'
 
-export const Loading = ({detail = ''}) => (
-    <>
-        <main className="loading-main">
-            <div className="loading-anim-container">
-                <div className="loading-anim"></div>
-                <footer className="loading-detail">{detail}</footer>
-            </div>
-        </main>
-    </>
-)
+export const Loading = () => {
+
+    const [dots, setDots] = useState('')
+
+    useEffect(() => {
+        const id = setInterval(() => {
+            setDots('.'.repeat((dots.length % 3) + 1))
+        }, 1000)
+
+        return () => clearInterval(id)
+    }, [dots])
+
+
+    return (
+        <>
+            <main className="loading-main">
+                
+                <div className="loading-anim-container">
+                    <div className="loading-anim"></div>                    
+                </div>
+
+                <div className="loading-text-container">
+                    <h2 className="loading-text">{`Searching for other players${dots}`}</h2>
+                </div>
+            </main>
+        </>
+    )
+}

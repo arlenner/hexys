@@ -31,7 +31,9 @@ const HexMap = ({initState, socket}) => {
         <>
             <Score bacteriaScore={state.cells.filter(c => c.cellState === 'bacteria').length}
                    cellScore={state.cells.filter(c => c.cellState === 'cell').length}
-                   state={state.team}/>
+                   state={state.team}
+                   name={state.name}
+                   opponentName={state.opponentName}/>
             <div className="map-container">
                 {state.cells.map(cell => 
                     <HexCell key={`${cell.x},${cell.y}`}
