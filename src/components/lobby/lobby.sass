@@ -1,0 +1,107 @@
+@import '../../App'
+    
+.lobby-main 
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    justify-content: space-evenly
+    margin: 3em
+    margin-top: 100vh
+    height: 100vh
+    width: 100vw
+
+.lobby-title
+    z-index: 2
+    position: relative
+    top: -20%
+    width: 100%
+    text-align: center
+    font-size: 2em
+
+.lobby-subtitle
+    z-index: 2
+    position: relative
+    top: -20%
+    text-shadow: 0 0 .25em $theme-accent-dark
+
+.lobby-welcome
+    position: fixed
+    display: flex    
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    top: 0
+    left: 0
+    height: 25em
+    width: 100vw
+
+.lobby-form
+    margin: 1em
+    display: flex
+    flex-direction: column
+
+.lobby-form-label
+    position: relative
+    top: 1.1em
+    left: 1.2em
+    background: $theme-neutral-dark
+    width: fit-content
+
+
+
+.games-list
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 21em
+    overflow-y: auto
+    overflow-x: hidden
+
+.games-list-title
+    background: linear-gradient(110deg, $theme-accent-light 70%, $theme-accent-dark 70.33% 80%, transparent 80.33%)
+    border-radius: 1em
+    width: 100%
+    text-align: center
+    
+.game-li-container
+    align-self: flex-start
+    border-radius: 1em
+    width: 15em
+    padding: .5em
+    margin: .5em
+    box-shadow: 0 0 0em .1em $theme-secondary-light
+
+.game-li-header
+
+.game-li-body
+
+.decor-container
+    position: absolute
+    top: 33%
+    transform: rotateZ(45deg)
+
+.decor-grid
+    display: grid
+
+.decor-hex-container
+    filter: drop-shadow(0 0 .5em $theme-secondary-light)
+
+.decor-hex
+    @include hexagon
+    background-color: $theme-secondary-light
+.decor-hex-top
+    @include hex-top
+    border-bottom: 1.5em solid $theme-secondary-light
+.decor-hex-bottom
+    @include hex-bottom
+    border-top: 1.5em solid $theme-secondary-light
+
+.corner-banner
+    position: absolute
+    height: 10em
+    width: 10em
+    top: 0
+    left: 0
+    background: linear-gradient(135deg, $theme-accent-light 40%, $theme-accent-dark 40.33% 45%, transparent 45.33%)
+    
+    

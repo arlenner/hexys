@@ -1,4 +1,5 @@
 import React from 'react'
+import './game-over.sass'
 
 const handleClick = socket => _ => {
     socket.emit('find-new-game', socket.id)

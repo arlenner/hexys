@@ -1,12 +1,61 @@
 @import './components/hex-map/hex-map'
 
+$text-color-main: #d0f9ff
+
+$theme-primary-light: #93ffae
+$theme-primary-dark: #4fcf6f
+
+$theme-secondary-light: #40fcff
+$theme-secondary-dark: #24c1c3
+
+$theme-accent-light: #ffa2f3
+$theme-accent-dark: #e43bcd
+
+$theme-neutral-light: #909090
+$theme-neutral-dark: #2e2e2e
+
+*
+  color: $text-color-main
+  text-shadow: 0 0 .25em $theme-secondary-light
+  font-family: Courier New, Courier, monospace, monospace
+
+button, input
+  transition: all .3s
+  font-size: 12pt
+  font-weight: 700
+  height: 2.5em
+  text-align: center
+  width: 12em
+  color: #eeeeff
+  border-radius: 1em
+  border: 1px solid transparent
+  margin: .5em
+  background: transparent
+  box-shadow: 0 0 0em .1em $theme-secondary-light
+  &:disabled
+    color: $theme-neutral-light
+    text-shadow: 0 0 .25em transparent
+    text-decoration-line: line-through
+    box-shadow: 0 0 0em .1em $theme-secondary-dark
+  &:focus
+    box-shadow: 0 0 0em .2em $theme-secondary-light
+    outline: transparent
+  &:hover
+    &:not(:disabled)
+      box-shadow: 0 0 0em .2em $theme-secondary-light
+      outline: transparent
+    
+input
+  &::placeholder
+    text-shadow: 0 0 0 transparent
+
 body
   display: flex
   align-items: center
   justify-content: center
   max-width: 100%
   overflow: hidden
-  background-color: #666
+  background-color: $theme-neutral-dark
   height: 100vh
   box-sizing: border-box
 
@@ -17,9 +66,32 @@ body
     justify-content: center
     max-width: 100%
     overflow: hidden
-    background-color: #666
+    background-color: $theme-neutral-dark
     height: 100vh
     box-sizing: border-box
     font-size: .7em
     
-  
+
+// MIXINS
+
+@mixin hexagon
+  display: flex
+  align-items: center
+  justify-content: center
+  background: grey
+  width: 4em
+  height: 2em
+
+@mixin hex-top
+  width: 0
+  border-bottom: 1.5em solid grey
+  border-left: 2em solid transparent
+  border-right: 2em solid transparent
+  border-top: 1.5em solid transparent
+
+@mixin hex-bottom
+  width: 0
+  border-bottom: 1.5em solid transparent
+  border-left: 2em solid transparent
+  border-right: 2em solid transparent
+  border-top: 1.5em solid grey

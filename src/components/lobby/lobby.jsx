@@ -26,6 +26,23 @@ const GameListItem = ({id, game}) => {
     )
 }
 
+const DecorHex = ({x, y}) => (
+    <>
+        <div className="decor-hex-container" style={{
+            gridRow: y + 1, 
+            gridColumn: x + 1,
+            marginTop: 
+                    x % 2 === 1 ? `4.5em`
+                :   y % 2 === 1 ? `0`
+                :  /**else */     `0`,
+            }}>
+            <div className="decor-hex-top"></div>
+            <div className="decor-hex" ></div>
+            <div className="decor-hex-bottom"></div>
+        </div>
+    </>
+)
+
 const handleClick = (socket, name) => _ => socket.emit('find-new-game', {id: socket.id, name: name.current.value})
 
 const handleInput = setter => e => e.target.value.length > 2 ? setter(false) : setter(true)
@@ -37,26 +54,46 @@ export const Lobby = ({socket, initGames}) => {
     const name = useRef(null)
 
     useEffect(() => {
-        socket.on('update-lobby', games => setGames(games))
-        return () => socket.off('update-lobby', setGames) 
+        socket.on('update-lobby', setGames)
+        return () => socket.off('update-lobby', setGames)
     }, [socket])
 
     return (
         <>
             <main className="lobby-main">
-                <section className="games-list">
-                    {games.map(game => <GameListItem {...game} />)}    
-                </section>  
-                <div className="lobby-welcome">
+                <div className="corner-banner"></div>
+                
+                <section className="lobby-welcome">
                     <h2 className="lobby-title">Welcome to HEXYS</h2>
                     <h4 className="lobby-subtitle">A Strategy Game Of Attrition</h4>
-                    <div className="lobby-form">
-                        <label>Name:</label>
-                        <input ref={name} onChange={handleInput(setDisabled)} type="text" placeholder="Enter Your Name..."></input>
-                        <button onClick={handleClick(socket, name)} 
-                                disabled={disabled}>Find Game</button>
+                </section>
+
+                <section className="lobby-form">
+                    <label className="lobby-form-label">Name:</label>
+                    <input ref={name} onChange={handleInput(setDisabled)} type="text" placeholder="Enter Your Name..."></input>
+                    <button onClick={handleClick(socket, name)} 
+                            disabled={disabled}>Find Game</button>
+                </section>   
+
+                <div className="decor-container">
+                    <div className="decor-grid"
+                        style={{
+                            gridTemplateColumns: `2.5em `.repeat(5),
+                            gridTemplateRows: `2.5em`.repeat(5)
+                        }}>
+                        {
+                            Array(6).fill(0).map((_, i) => {
+                                return <DecorHex key={i} x={i%3} y={i%2} />
+                            })
+                        }
                     </div>
-                </div>        
+                </div>
+
+                <section className="games-list">
+                    <h2 className="games-list-title">Games</h2>
+                    {games.map(game => <GameListItem key={game.id} {...game} />)}    
+                </section>  
+
             </main>
         </>
     )
