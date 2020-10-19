@@ -2,7 +2,7 @@ import React from 'react'
 import './game-over.sass'
 
 const handleClick = (socket, state) => _ => {
-    socket.emit('find-new-game', { name: state.find(g => g.socketID === socket.id).name, id: socket.id})
+    socket.emit('find-new-game', { name: state.games.find(g => g.socketID === socket.id).name, id: socket.id})
 }
 
 const Body = ({state, socket, text}) => (
