@@ -8,6 +8,8 @@ const handleClick = (socket, state) => _ => {
     })
 }
 
+const handleBackToLobby = _ => socket.emit('to-lobby')
+
 const Body = ({state, socket, text}) => (
     <>
         <main className="game-over">
@@ -16,6 +18,7 @@ const Body = ({state, socket, text}) => (
             </header>
             <footer className="game-over-footer">
                 <button onClick={handleClick(socket, state)}>Play Again?</button>
+                <button onClick={handleBackToLobby}>Lobby</button>
             </footer>
         </main>
     </>
