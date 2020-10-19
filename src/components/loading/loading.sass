@@ -1,26 +1,52 @@
+@import '../../App'
+    
 .loading-main 
+    width: 100vw
     display: flex
     align-items: center
     justify-content: center
-    flex-direction: column
-
-.loading-detail
 
 .loading-anim
-    animation: turn 2s infinite cubic-bezier(.72,.23,.85,.33)
-    width: 5em
-    height: 5em
-    background-color: lightskyblue
+    transform: rotateZ(90deg)
+    filter: drop-shadow(0 0 .4em $theme-secondary-light)
 
-.loading-anim-container
-    animation: slide 2s infinite ease-in
+.loading-anim-top
+    @include hex-top
+    border: 3.5em solid transparent
+    border-bottom: 3.5em solid $theme-secondary-light
+    
+.loading-anim-bottom
+    @include hex-bottom
+    border: 3.5em solid transparent
+    border-top: 3.5em solid $theme-secondary-light
+    
+.loading-anim-center
+    @include hexagon
+    height: 4em
+    width: 7em
+    background: $theme-secondary-light
+    
 
-.loading-text-cont
-    position: relative
+.loading-text-container
+    position: absolute
+    width: 100vw
+    height: 100vh
 
 .loading-text
     position: absolute
-    left: 42.5%
+    left: 37%
+    bottom: 10%
+
+@media screen and ( max-width: 500px )
+    .loading-text
+        position: absolute
+        left: 20%
+
+@media screen and ( max-width: 900px )
+    .loading-text
+        position: absolute
+        left: 30%
+    
 
 
 

@@ -18,8 +18,10 @@ export const Loading = ({searching = false}) => {
         <>
             <main className="loading-main">
                 
-                <div className="loading-anim-container">
-                    <div className="loading-anim"></div>                    
+                <div className="loading-anim">
+                    <div className="loading-anim-top"></div>                    
+                    <div className="loading-anim-center"></div>                    
+                    <div className="loading-anim-bottom"></div>                    
                 </div>
 
                 <div className="loading-text-container">

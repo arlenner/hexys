@@ -76,6 +76,7 @@
 .game-li-body
 
 .decor-container
+    z-index: 1
     position: absolute
     top: 33%
     transform: rotateZ(45deg)
@@ -104,4 +105,23 @@
     left: 0
     background: linear-gradient(135deg, $theme-accent-light 40%, $theme-accent-dark 40.33% 45%, transparent 45.33%)
     
-    
+
+@media ( max-width: 900px )
+    .decor-container
+        top: -10%
+        left: 5%
+        transform: rotateZ(45deg) scale(.5)
+
+@media ( max-width: 500px )
+    .lobby-title
+        top: 33%
+
+    .lobby-subtitle
+        top: 33%
+
+@media ( max-height: 500px )
+    .lobby-title
+        display: none
+
+    .lobby-subtitle
+        display: none

@@ -28,7 +28,7 @@ const HexMap = ({initState, socket}) => {
     }, [initState, socket])
 
     return (
-        <>
+        <main className="map-main">
             <Score bacteriaScore={state.cells.filter(c => c.cellState === 'bacteria').length}
                    cellScore={state.cells.filter(c => c.cellState === 'cell').length}
                    state={state.team}
@@ -44,7 +44,7 @@ const HexMap = ({initState, socket}) => {
                             socket={socket} />)
                 }
             </div>
-        </>
+        </main>
     )
 }
 
