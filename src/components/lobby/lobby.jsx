@@ -5,6 +5,11 @@ import './lobby.sass'
 const PENDING = 'Pending',
       ACTIVE  = 'Active'
 
+const handleClick = (socket, name) => _ => socket.emit('find-new-game', {id: socket.id, name: name.current.value})
+
+const handleInput = setter => e => e.target.value.length > 2 ? setter(false) : setter(true)
+
+
 const GameListItem = ({id, game}) => {
     const STATE = game[1] === null ? PENDING : ACTIVE
     const getText = () =>
@@ -42,10 +47,6 @@ const DecorHex = ({x, y}) => (
         </div>
     </>
 )
-
-const handleClick = (socket, name) => _ => socket.emit('find-new-game', {id: socket.id, name: name.current.value})
-
-const handleInput = setter => e => e.target.value.length > 2 ? setter(false) : setter(true)
 
 export const Lobby = ({socket, initGames}) => {
 
