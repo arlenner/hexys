@@ -24,31 +24,18 @@
     @include hexagon
     height: 4em
     width: 7em
-    background: $theme-secondary-light
-    
+    background: $theme-secondary-light    
 
 .loading-text-container
+    display: flex
+    align-items: flex-end
+    justify-content: center
     position: absolute
     width: 100vw
     height: 100vh
 
 .loading-text
-    position: absolute
-    left: 37%
-    bottom: 10%
-
-@media screen and ( max-width: 500px )
-    .loading-text
-        position: absolute
-        left: 20%
-
-@media screen and ( max-width: 900px )
-    .loading-text
-        position: absolute
-        left: 30%
-    
-
-
+    height: 3em
 
 
 @keyframes turn

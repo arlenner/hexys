@@ -20,14 +20,12 @@ const GameListItem = ({id, game}) => {
     const getScore = team => game[0].cells.filter(c => c.cellState === team).length  
 
     return (
-        <>
-            <div className="game-li-container">
-                <header className="game-li-header">{getText()}</header>
-                <section className="game-li-body">
-                    {`C: ${getScore('cell')} | B: ${getScore('bacteria')}`}
-                </section>
-            </div>
-        </>
+        <div className="game-li-container">
+            <header className="game-li-header">{getText()}</header>
+            <section className="game-li-body">
+                {`C: ${getScore('cell')} | B: ${getScore('bacteria')}`}
+            </section>
+        </div>
     )
 }
 
@@ -92,7 +90,9 @@ export const Lobby = ({socket, initGames}) => {
 
                 <section className="games-list">
                     <h2 className="games-list-title">Games</h2>
-                    {games.map(game => <GameListItem key={game.id} {...game} />)}    
+                    <div className="games-list-items">
+                        {games.map(game => <GameListItem key={game.id} {...game} />)}    
+                    </div>
                 </section>  
 
             </main>

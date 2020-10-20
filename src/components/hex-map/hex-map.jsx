@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Score } from '../score/score'
 import { HexCell } from './hex-cell'
+import './hex-map.sass'
 
 const GAME_MODEL = {
     id: '',

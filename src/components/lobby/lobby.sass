@@ -1,16 +1,17 @@
 @import '../../App'
     
 .lobby-main 
+    z-index: 2
     display: flex
     flex-direction: row
-    align-items: flex-start
-    justify-content: space-evenly
-    margin: 3em
-    margin-top: 100vh
+    align-items: center
+    justify-content: center
     height: 100vh
-    width: 100vw
+    width: 100%
+    overflow: hidden
 
 .lobby-title
+    transition: top .5s
     z-index: 2
     position: relative
     top: -20%
@@ -19,6 +20,7 @@
     font-size: 2em
 
 .lobby-subtitle
+    transition: top .5s
     z-index: 2
     position: relative
     top: -20%
@@ -50,12 +52,15 @@
 
 
 .games-list
+    transition: transform .5s
     display: flex
     flex-direction: column
     align-items: center
     width: 21em
+    height: 17em
+    
+.games-list-items
     overflow-y: auto
-    overflow-x: hidden
 
 .games-list-title
     background: linear-gradient(110deg, $theme-accent-light 70%, $theme-accent-dark 70.33% 80%, transparent 80.33%)
@@ -64,7 +69,6 @@
     text-align: center
     
 .game-li-container
-    align-self: flex-start
     border-radius: 1em
     width: 15em
     padding: .5em
@@ -76,9 +80,11 @@
 .game-li-body
 
 .decor-container
+    transition: top .5s
     z-index: 1
     position: absolute
-    top: 33%
+    top: 0%
+    left: 10%
     transform: rotateZ(45deg)
 
 .decor-grid
@@ -108,9 +114,14 @@
 
 @media ( max-width: 900px )
     .decor-container
-        top: -10%
-        left: 5%
-        transform: rotateZ(45deg) scale(.5)
+        top: 0
+        left: 10%
+        transform: rotateZ(45deg) scale(.66)
+
+    .games-list
+        margin-top: 20%
+        margin-left: 10%
+
 
 @media ( max-width: 500px )
     .lobby-title
@@ -119,9 +130,52 @@
     .lobby-subtitle
         top: 33%
 
+    .lobby-main
+        flex-direction: column
+        align-items: center
+        width: 100%
+        height: 20em
+        overflow: hidden
+
+    .game-li-container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        height: 10em
+        width: 12em
+
+    .games-list
+        position: fixed
+        left: 0
+        bottom: 0%
+        width: 100vw
+        height: 20em
+        margin: 0
+
+    .games-list-items
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        overflow-x: scroll
+        overflow-y: hidden
+
+    .games-list-title
+        font-size: 2em
+        border-radius: 0
+
+
+
 @media ( max-height: 500px )
     .lobby-title
-        display: none
+        top: -20%
 
     .lobby-subtitle
-        display: none
+        top: -20%
+
+    .decor-container
+        top: -500%
+
+@media screen and ( max-width: 500px ) and ( max-height: 500px )    
+    .games-list
+        transform: translateY(500%)
