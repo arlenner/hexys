@@ -16,7 +16,10 @@ const App = () => {
     const [component, setComponent] = useState(<Loading />)
 
     useEffect(() => {
-        socket = socketIOClient(ENDPOINT)
+        socket = socketIOClient(ENDPOINT, { transports: ['websocket'] })
+
+        // socket.on('send-pair-test', pairs => console.log(pairs))
+
         socket.on('connected',      games => setComponent(<Lobby socket={socket} initGames={games} />))
         socket.on('found-game',     data => setComponent(<HexMap initState={data} socket={socket}/>))
         socket.on('finding-game',   () => setComponent(<Loading searching />))
